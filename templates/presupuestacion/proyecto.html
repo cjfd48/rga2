@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+<title>Proyecto {% block title %}{{ nombre_proyecto }}{% endblock %}</title>
+{% block body_block %}
+
+    {% if proyecto %}
+        <h1>{{ nombre_proyecto }}</h1>
+        {% if postes %}
+            <ul>
+                {% for poste in postes %}
+                    <li>{{ poste.nombre }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>No Hay postes en este proyecto12</strong>
+        {% endif %}
+        <a href="{% url 'presupuestacion:add_poste'  proyecto.slug %}">Añadir Poste</a>
+    {% else %}
+        El proyecto {{ nombre_proyecto }} No Existe
+    {% endif %}
+    <p>
+
+        <strong id="like_count">{{ category.likes }}</strong> people like this category
+
+        {% if user.is_authenticated %}
+            <button id="likes" data-catid="{{ proyecto.id }}" class="btn btn-primary" type="button">
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                Like
+            </button>
+        {% endif %}
+
+    </p>
+{% endblock %}

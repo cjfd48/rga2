@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}About{% endblock %}
+
+{% block body_block %}
+    <div class="page-header">
+                <h1>About</h1>
+
+            </div>
+            <div>
+            <p><strong>This is Rango About Page</strong> </p>
+            <a href={% url 'presupuestacion:index' %}>Back</a><br />
+            <img  width="600px" height="400px" src="{% static "images/../../../../Users/Carlos Fuentes/Bitnami Django Stack projects/rga2/static/images/rango.jpg" %}" alt="Picture of Rango" /> <!-- New line -->
+            </div>
+    <button id="about-btn"> Click Me - I'm Javascript on Speed</button>
+
+<p>This is a example</p>
+
+<p>This is another example</p>
+    <div id="msg">Hello</div>
+{% endblock %}

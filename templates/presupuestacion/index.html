@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Index{% endblock %}
+
+{% block body_block %}
+    {% if user.is_authenticated %}
+        <div class="page-header">
+
+        <h1>Rango says... hello {{ user_profile.nombres|capfirst }}!</h1>
+    {% else %}
+        <h1>Rango says... hello world!</h1>
+    {% endif %}
+</div>
+
+    <div class="panel panel-primary">
+    <div class="panel-heading">
+            <h3 class="panel-title">Categories</h3>
+</div>
+
+
+    </div>
+
+            {% if proyectos %}
+                <ul>
+                    {% for proyecto in proyectos %}
+                        <li><a href="{% url 'presupuestacion:proyecto'  proyecto.slug %}">{{ proyecto.nombre }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <strong>There are no categories present.</strong>
+            {% endif %}
+
+        </div>
+
+
+    </div>
+
+
+    <p> visits: {{ visits }}</p>
+{% endblock %}
