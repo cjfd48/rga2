@@ -61,9 +61,9 @@ WSGI_APPLICATION = 'rga2.wsgi.application'
 DATABASES = {
     'default': {
          'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME': 'rga2',
-         'USER': 'rga',
-         'PASSWORD': 'Rga123456*',
+         'NAME': '',
+         'USER': '',
+         'PASSWORD': '',
      }
 }
 
